@@ -9,42 +9,48 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
 <style>
 :root {
-  --bg0:#0a0a0d;--bg1:#111116;--bg2:#16161d;--bg3:#1c1c25;
-  --bd:rgba(255,255,255,0.07);--bd2:rgba(255,255,255,0.12);
-  --t1:#eeeef4;--t2:#8888a0;--t3:#44444e;
-  --acc:#7c5cfc;--acc-bg:rgba(124,92,252,0.12);--acc-lt:#c4b5fd;
-  --warn:#f59e0b;--warn-bg:rgba(245,158,11,0.1);
-  --ok:#4ade80;--ok-bg:rgba(74,222,128,0.08);
-  --danger:#f87171;--danger-bg:rgba(248,113,113,0.08);
-  --pink:#f472b6;--pink-bg:rgba(244,114,182,0.08);
+  --bg0:#1e1e2e;--bg1:#252538;--bg2:#2a2a40;--bg3:#313150;
+  --bd:rgba(255,255,255,0.09);--bd2:rgba(255,255,255,0.15);
+  --t1:#f0f0fa;--t2:#9898b8;--t3:#5a5a78;
+  --acc:#8b6fff;--acc-bg:rgba(139,111,255,0.15);--acc-lt:#c4b5fd;
+  --warn:#f59e0b;--warn-bg:rgba(245,158,11,0.12);
+  --ok:#4ade80;--ok-bg:rgba(74,222,128,0.1);
+  --danger:#f87171;--danger-bg:rgba(248,113,113,0.1);
+  --pink:#f472b6;--pink-bg:rgba(244,114,182,0.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1);min-height:100vh;padding:0 0 80px}
-.shell{max-width:900px;margin:0 auto;padding:0 20px}
+.shell{max-width:940px;margin:0 auto;padding:0 20px}
 
-/* header */
 .hdr{display:flex;align-items:center;justify-content:space-between;padding:28px 0 22px;border-bottom:0.5px solid var(--bd);margin-bottom:24px}
 .hdr-l{display:flex;align-items:center;gap:11px}
-.logo-circle{width:38px;height:38px;background:var(--acc-bg);border:0.5px solid var(--acc);border-radius:50%;display:flex;align-items:center;justify-content:center}
-.logo-circle i{font-size:19px;color:var(--acc-lt)}
-.brand{font-size:16px;font-weight:600;color:var(--t1)}
+.logo-circle{width:40px;height:40px;background:var(--acc-bg);border:0.5px solid var(--acc);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.logo-circle i{font-size:20px;color:var(--acc-lt)}
+.brand{font-size:17px;font-weight:600;color:var(--t1)}
 .brand-sub{font-size:11px;color:var(--t3);margin-top:1px}
-.btn-add{display:flex;align-items:center;gap:6px;background:var(--acc);color:#fff;border:none;border-radius:8px;padding:9px 17px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s}
+.btn-add{display:flex;align-items:center;gap:6px;background:var(--acc);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .15s}
 .btn-add:hover{opacity:.85}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:22px}
-.stat{background:var(--bg2);border:0.5px solid var(--bd);border-radius:10px;padding:12px 14px}
-.stat-lbl{font-size:11px;color:var(--t3);letter-spacing:.3px;text-transform:uppercase;margin-bottom:4px}
-.stat-val{font-size:18px;font-weight:600;color:var(--t1);font-family:'DM Mono',monospace}
-.stat-val.pu{color:var(--acc-lt)}.stat-val.wa{color:var(--warn)}.stat-val.pk{color:var(--pink)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.stat{border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden}
+.stat-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.stat-info{}
+.stat-lbl{font-size:12px;color:var(--t3);margin-bottom:3px}
+.stat-val{font-size:24px;font-weight:700;font-family:'DM Mono',monospace}
+.stat.s-restore{background:linear-gradient(135deg,#2a1f3d,#1e2030);border:0.5px solid rgba(248,113,113,.25)}
+.stat.s-restore .stat-icon{background:rgba(248,113,113,.15)}
+.stat.s-restore .stat-val{color:var(--danger)}
+.stat.s-perm{background:linear-gradient(135deg,#1f2040,#1e1e2e);border:0.5px solid rgba(139,111,255,.3)}
+.stat.s-perm .stat-icon{background:rgba(139,111,255,.15)}
+.stat.s-perm .stat-val{color:var(--acc-lt)}
+.stat.s-total{background:linear-gradient(135deg,#1a2e28,#1e1e2e);border:0.5px solid rgba(74,222,128,.2)}
+.stat.s-total .stat-icon{background:rgba(74,222,128,.12)}
+.stat.s-total .stat-val{color:var(--ok)}
 
-/* toast */
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg2);border:0.5px solid var(--acc);border-radius:10px;padding:12px 20px;font-size:13px;color:var(--acc-lt);z-index:999;transition:transform .3s ease;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg2);border:0.5px solid var(--acc);border-radius:10px;padding:12px 20px;font-size:13px;color:var(--acc-lt);z-index:999;transition:transform .3s ease;white-space:nowrap;display:flex;align-items:center;gap:8px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.toast.perm{border-color:var(--pink);color:var(--pink);background:var(--bg2)}
+.toast.perm{border-color:var(--pink);color:var(--pink)}
 
-/* filter */
 .filter-row{display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap}
 .s-wrap{flex:1;min-width:160px;position:relative}
 .s-wrap i{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--t3);font-size:14px;pointer-events:none}
@@ -58,57 +64,76 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
 .sort-sel{background:var(--bg2);border:0.5px solid var(--bd);color:var(--t2);border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:inherit;outline:none}
 .cnt-lbl{margin-left:auto;font-size:12px;color:var(--t3);font-family:'DM Mono',monospace}
 
-/* vod card */
-.vod-list{display:flex;flex-direction:column;gap:8px}
-.vod-card{background:var(--bg1);border:0.5px solid var(--bd);border-radius:10px;padding:13px 15px;transition:border-color .15s}
+/* VOD 카드 */
+.vod-list{display:flex;flex-direction:column;gap:10px}
+.vod-card{background:var(--bg1);border:0.5px solid var(--bd);border-radius:12px;overflow:hidden;transition:border-color .15s}
 .vod-card:hover{border-color:var(--bd2)}
-.vod-card.permanent{border-left:2px solid var(--acc)}
-.vod-card.expiring{border-left:2px solid var(--warn)}
-.vod-card.expired{border-left:2px solid #2a2a36;opacity:.5}
-.vod-card.active{border-left:2px solid var(--ok)}
-.vod-card.just-perm{border-left:2px solid var(--pink);animation:glowPerm 1.5s ease}
-@keyframes glowPerm{0%{box-shadow:0 0 0 0 rgba(244,114,182,.4)}70%{box-shadow:0 0 0 8px rgba(244,114,182,0)}100%{box-shadow:none}}
+.vod-card.permanent{border-left:3px solid var(--acc)}
+.vod-card.expiring{border-left:3px solid var(--warn)}
+.vod-card.expired{border-left:3px solid #3a3a50;opacity:.5}
+.vod-card.active{border-left:3px solid var(--ok)}
+.vod-card.just-perm{border-left:3px solid var(--pink);animation:glowPerm 1.5s ease}
+@keyframes glowPerm{0%{box-shadow:0 0 0 0 rgba(244,114,182,.4)}70%{box-shadow:0 0 0 10px rgba(244,114,182,0)}100%{box-shadow:none}}
 
-.card-top{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;margin-bottom:10px}
-.vod-title{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:7px;line-height:1.45}
-.vod-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card-inner{display:flex;gap:0;align-items:stretch}
+
+/* 썸네일 */
+.thumb-wrap{width:140px;min-width:140px;background:var(--bg3);position:relative;overflow:hidden;flex-shrink:0}
+.thumb-img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--t3);font-size:12px;min-height:90px}
+.thumb-placeholder i{font-size:28px;color:var(--bg2)}
+.thumb-overlay{position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--bg1));pointer-events:none}
+
+/* 카드 본문 */
+.card-body{flex:1;padding:13px 15px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card-top-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.vod-title{font-size:13px;font-weight:500;color:var(--t1);line-height:1.45;flex:1;min-width:0}
+.vod-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .mt{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--t3)}
 .mt i{font-size:13px}
-.mt.views{color:var(--acc-lt)}.mt.live{color:var(--pink)}.mt.updated{font-size:11px}
+.mt.views-pure{color:var(--acc-lt);font-weight:500}
+.mt.live{color:var(--pink)}
+.mt.vod-cnt{color:var(--t2)}
+.mt.updated{font-size:11px}
 
 .badge{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500}
-.b-perm{background:var(--acc-bg);color:var(--acc-lt);border:0.5px solid rgba(124,92,252,.3)}
+.b-perm{background:var(--acc-bg);color:var(--acc-lt);border:0.5px solid rgba(139,111,255,.3)}
 .b-soon{background:var(--warn-bg);color:var(--warn);border:0.5px solid rgba(245,158,11,.3)}
 .b-ok{background:var(--ok-bg);color:var(--ok);border:0.5px solid rgba(74,222,128,.2)}
 .b-exp{background:rgba(255,255,255,.03);color:var(--t3);border:0.5px solid var(--bd)}
 .b-danger{background:var(--danger-bg);color:var(--danger);border:0.5px solid rgba(248,113,113,.3)}
 .b-auto-perm{background:var(--pink-bg);color:var(--pink);border:0.5px solid rgba(244,114,182,.3)}
 
-.vod-right{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
-.expire-info{font-size:11px;color:var(--t3);font-family:'DM Mono',monospace;text-align:right}
+.card-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.expire-info{font-size:11px;color:var(--t3);font-family:'DM Mono',monospace;text-align:right;white-space:nowrap}
 .actions{display:flex;gap:5px}
 .act{background:transparent;border:0.5px solid var(--bd);color:var(--t3);border-radius:7px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all .15s}
 .act:hover{border-color:var(--acc);color:var(--acc-lt);background:var(--acc-bg)}
 .act.del:hover{border-color:rgba(248,113,113,.4);color:var(--danger);background:var(--danger-bg)}
 .act.upd:hover{border-color:rgba(74,222,128,.3);color:var(--ok);background:var(--ok-bg)}
 
-/* progress bar */
-.prog-wrap{margin-top:4px}
+/* 순수조회수 강조 박스 */
+.pure-box{background:var(--bg3);border-radius:7px;padding:6px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pure-label{font-size:11px;color:var(--t3)}
+.pure-val{font-size:13px;font-weight:600;color:var(--acc-lt);font-family:'DM Mono',monospace}
+.pure-formula{font-size:11px;color:var(--t3)}
+
+/* 진행바 */
+.prog-wrap{margin-top:2px}
 .prog-label{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--t3);margin-bottom:4px}
-.prog-label span.highlight{color:var(--acc-lt);font-family:'DM Mono',monospace}
-.prog-label span.done{color:var(--pink)}
-.prog-bar{height:4px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.prog-label .highlight{color:var(--acc-lt);font-family:'DM Mono',monospace}
+.prog-label .done{color:var(--pink);font-weight:600}
+.prog-bar{height:4px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
 .prog-fill{height:100%;border-radius:4px;transition:width .5s ease;background:linear-gradient(90deg,var(--acc),var(--acc-lt))}
 .prog-fill.done{background:linear-gradient(90deg,var(--pink),#f9a8d4)}
 
-/* empty */
 .empty{text-align:center;padding:50px 20px;color:var(--t3)}
 .empty i{font-size:36px;display:block;margin-bottom:10px;color:var(--bg3)}
 
-/* overlay / modal */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:200;align-items:center;justify-content:center;padding:20px}
+/* 모달 */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;align-items:center;justify-content:center;padding:20px}
 .overlay.open{display:flex}
-.modal{background:var(--bg2);border:0.5px solid var(--bd2);border-radius:12px;padding:22px;width:100%;max-width:500px;animation:modalIn .18s ease;max-height:90vh;overflow-y:auto}
+.modal{background:var(--bg2);border:0.5px solid var(--bd2);border-radius:14px;padding:24px;width:100%;max-width:500px;animation:modalIn .18s ease;max-height:90vh;overflow-y:auto}
 @keyframes modalIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .modal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .modal-title{font-size:15px;font-weight:600;color:var(--t1)}
@@ -122,13 +147,28 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
 .fld input::placeholder{color:var(--t3)}
 .fld select option{background:var(--bg2)}
 .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.hint{font-size:11px;color:var(--t3);margin-top:4px}
-.hint.ok{color:var(--ok)}
-.hint.warn{color:var(--warn)}
-.auto-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--ok-bg);color:var(--ok);border:0.5px solid rgba(74,222,128,.2);border-radius:20px;padding:2px 8px;margin-left:6px}
-.perm-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--pink-bg);color:var(--pink);border:0.5px solid rgba(244,114,182,.2);border-radius:20px;padding:2px 8px;margin-left:6px}
+.hint{font-size:11px;color:var(--t3);margin-top:4px;line-height:1.4}
+.hint.ok{color:var(--ok)}.hint.warn{color:var(--warn)}
 
-.section-divider{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 10px;padding-bottom:6px;border-bottom:0.5px solid var(--bd)}
+.sec-div{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 10px;padding-bottom:6px;border-bottom:0.5px solid var(--bd);display:flex;align-items:center;gap:6px}
+
+.auto-badge{display:inline-flex;align-items:center;gap:3px;font-size:11px;background:var(--ok-bg);color:var(--ok);border:0.5px solid rgba(74,222,128,.2);border-radius:20px;padding:1px 7px;margin-left:5px}
+
+/* 조회수 계산 미리보기 박스 */
+.calc-box{background:var(--bg1);border:0.5px solid var(--bd2);border-radius:8px;padding:10px 13px;margin-top:4px}
+.calc-row{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}
+.calc-row .lbl{color:var(--t3)}
+.calc-row .val{font-family:'DM Mono',monospace;color:var(--t2)}
+.calc-row.result .lbl{color:var(--t1);font-weight:500}
+.calc-row.result .val{color:var(--acc-lt);font-weight:600;font-size:13px}
+.calc-divider{border:none;border-top:0.5px solid var(--bd);margin:5px 0}
+.perm-hint{font-size:11px;margin-top:6px;padding-top:6px;border-top:0.5px solid var(--bd)}
+
+.url-row{display:flex;gap:6px}
+.url-row input{flex:1}
+.fetch-btn{background:var(--bg3);border:0.5px solid var(--bd2);color:var(--t2);border-radius:7px;padding:8px 12px;cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s}
+.fetch-btn:hover{border-color:var(--acc);color:var(--acc-lt)}
+.fetch-btn:disabled{opacity:.4;cursor:not-allowed}
 
 .modal-footer{display:flex;gap:7px;justify-content:flex-end;margin-top:18px}
 .btn-c{background:transparent;border:0.5px solid var(--bd2);color:var(--t2);border-radius:7px;padding:8px 16px;cursor:pointer;font-size:13px;font-family:inherit}
@@ -136,21 +176,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
 .btn-s{background:var(--acc);border:none;color:#fff;border-radius:7px;padding:8px 20px;cursor:pointer;font-size:13px;font-weight:500;font-family:inherit}
 .btn-s:hover{opacity:.88}
 
-.update-modal{background:var(--bg2);border:0.5px solid var(--bd2);border-radius:12px;padding:22px;width:100%;max-width:400px;animation:modalIn .18s ease}
+.upd-modal{background:var(--bg2);border:0.5px solid var(--bd2);border-radius:14px;padding:24px;width:100%;max-width:400px;animation:modalIn .18s ease}
 
 .btm-bar{display:flex;gap:8px;justify-content:center;margin-top:28px}
 .btm-btn{background:var(--bg2);border:0.5px solid var(--bd);color:var(--t2);border-radius:20px;padding:6px 15px;font-size:12px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px}
 .btm-btn:hover{border-color:var(--bd2);color:var(--t1)}
 
-.url-row{display:flex;gap:6px}
-.url-row input{flex:1}
-.url-fetch-btn{background:var(--bg3);border:0.5px solid var(--bd2);color:var(--t2);border-radius:7px;padding:8px 12px;cursor:pointer;font-size:12px;font-family:inherit;white-space:nowrap;transition:all .15s}
-.url-fetch-btn:hover{border-color:var(--acc);color:var(--acc-lt)}
-.url-fetch-btn:disabled{opacity:.4;cursor:not-allowed}
-
-@media(max-width:600px){
+@media(max-width:620px){
   .stats{grid-template-columns:repeat(3,1fr)}
   .hdr{flex-direction:column;gap:12px;align-items:flex-start}
+  .thumb-wrap{width:100px;min-width:100px}
 }
 </style>
 </head>
@@ -161,7 +196,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
       <div class="logo-circle"><i class="ti ti-device-tv"></i></div>
       <div>
         <div class="brand">디어리VOD</div>
-        <div class="brand-sub">다시보기 조회수 &amp; 영구보관 현황</div>
+        <div class="brand-sub">다시보기 순수조회수 &amp; 영구보관 현황</div>
       </div>
     </div>
     <button class="btn-add" onclick="openAdd()"><i class="ti ti-plus"></i> VOD 추가</button>
@@ -186,8 +221,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
     <select class="sort-sel" id="sortEl" onchange="render()">
       <option value="date-desc">최신 방송순</option>
       <option value="date-asc">오래된순</option>
-      <option value="views-desc">VOD 조회수 높은순</option>
-      <option value="live-desc">라이브 참여수 높은순</option>
+      <option value="pure-desc">순수조회수 높은순</option>
+      <option value="vod-desc">VOD 조회수 높은순</option>
       <option value="expire-asc">만료 임박순</option>
       <option value="prog-desc">달성률 높은순</option>
     </select>
@@ -202,7 +237,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
   </div>
 </div>
 
-<!-- toast -->
 <div class="toast" id="toast"></div>
 
 <!-- 추가/수정 모달 -->
@@ -213,20 +247,34 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
       <button class="modal-x" onclick="closeAdd()"><i class="ti ti-x"></i></button>
     </div>
 
-    <div class="section-divider">기본 정보</div>
+    <div class="sec-div"><i class="ti ti-link"></i> 기본 정보</div>
 
     <div class="fld">
-      <label>SOOP VOD 링크 <span style="color:var(--t3);font-size:11px">(붙여넣으면 제목 자동 인식 시도)</span></label>
+      <label>SOOP VOD 링크</label>
       <div class="url-row">
         <input id="f-url" placeholder="https://vod.soop.com/..." oninput="onUrlInput()">
-        <button class="url-fetch-btn" id="fetchBtn" onclick="fetchTitle()" disabled>제목 가져오기</button>
+        <button class="fetch-btn" id="fetchBtn" onclick="fetchMeta()" disabled>정보 가져오기</button>
       </div>
       <div class="hint" id="fetchHint"></div>
     </div>
+
     <div class="fld">
       <label>VOD 제목 *</label>
       <input id="f-title" placeholder="예) 오늘도 즐거운 방송!">
     </div>
+
+    <!-- 썸네일 미리보기 -->
+    <div class="fld" id="thumbPreviewWrap" style="display:none">
+      <label>썸네일 미리보기</label>
+      <img id="thumbPreview" src="" alt="썸네일" style="width:100%;border-radius:8px;max-height:160px;object-fit:cover;border:0.5px solid var(--bd2)">
+      <div class="hint">직접 URL을 입력하거나 자동으로 가져올 수 있어요</div>
+    </div>
+
+    <div class="fld">
+      <label>썸네일 이미지 URL <span style="color:var(--t3);font-size:11px">(선택 — SOOP VOD 썸네일 주소)</span></label>
+      <input id="f-thumb" placeholder="https://..." oninput="previewThumb()">
+    </div>
+
     <div class="fld-row">
       <div class="fld">
         <label>방송 날짜 * <span class="auto-badge"><i class="ti ti-bolt" style="font-size:10px"></i>자동</span></label>
@@ -247,19 +295,28 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
       <input id="f-expire" type="date">
     </div>
 
-    <div class="section-divider">조회수 정보</div>
+    <div class="sec-div"><i class="ti ti-chart-bar"></i> 조회수 입력</div>
 
     <div class="fld-row">
       <div class="fld">
-        <label>🔴 라이브 참여수</label>
-        <input id="f-live" type="number" placeholder="방송 당시 시청자 수" oninput="calcViews()">
-        <div class="hint">방송 종료 후 확인한 최고 시청자 수</div>
+        <label>📺 VOD 총 조회수</label>
+        <input id="f-vodviews" type="number" placeholder="SOOP에 표시된 조회수" oninput="calcPure()">
+        <div class="hint">SOOP VOD 페이지의 전체 조회수</div>
       </div>
       <div class="fld">
-        <label>▶ VOD 순수 조회수 <span class="perm-badge"><i class="ti ti-infinity" style="font-size:10px"></i>1,000 목표</span></label>
-        <input id="f-views" type="number" placeholder="VOD만 따로 본 횟수" oninput="calcViews()">
-        <div class="hint" id="viewsHint"></div>
+        <label>🔴 라이브 참여수</label>
+        <input id="f-live" type="number" placeholder="방송 당시 시청자 수" oninput="calcPure()">
+        <div class="hint">방송 종료 후 최고 시청자 수</div>
       </div>
+    </div>
+
+    <!-- 자동 계산 박스 -->
+    <div class="calc-box" id="calcBox" style="display:none">
+      <div class="calc-row"><span class="lbl">VOD 총 조회수</span><span class="val" id="calc-vod">-</span></div>
+      <div class="calc-row"><span class="lbl">라이브 참여수</span><span class="val" id="calc-live">-</span></div>
+      <hr class="calc-divider">
+      <div class="calc-row result"><span class="lbl">✨ 순수 조회수</span><span class="val" id="calc-pure">-</span></div>
+      <div class="perm-hint" id="calc-hint"></div>
     </div>
 
     <div class="fld">
@@ -276,25 +333,31 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
 
 <!-- 조회수 업데이트 모달 -->
 <div class="overlay" id="updOverlay">
-  <div class="update-modal">
+  <div class="upd-modal">
     <div class="modal-hdr">
       <span class="modal-title">조회수 업데이트</span>
       <button class="modal-x" onclick="closeUpd()"><i class="ti ti-x"></i></button>
     </div>
     <div class="fld">
-      <label id="updTitle" style="font-size:13px;color:var(--t1);margin-bottom:10px;display:block;line-height:1.4;font-weight:500"></label>
+      <label id="updTitleEl" style="font-size:13px;color:var(--t1);margin-bottom:10px;display:block;line-height:1.4;font-weight:500"></label>
     </div>
     <div class="fld-row">
       <div class="fld">
-        <label>🔴 라이브 참여수</label>
-        <input id="upd-live" type="number" placeholder="최고 시청자 수">
+        <label>📺 VOD 총 조회수</label>
+        <input id="upd-vod" type="number" placeholder="전체 조회수" oninput="calcUpdPure()">
       </div>
       <div class="fld">
-        <label>▶ VOD 순수 조회수</label>
-        <input id="upd-views" type="number" placeholder="VOD 조회수">
+        <label>🔴 라이브 참여수</label>
+        <input id="upd-live" type="number" placeholder="시청자 수" oninput="calcUpdPure()">
       </div>
     </div>
-    <div class="hint" id="updHint" style="margin-bottom:12px;font-size:12px"></div>
+    <div class="calc-box" id="updCalcBox" style="display:none">
+      <div class="calc-row"><span class="lbl">VOD 총 조회수</span><span class="val" id="upd-calc-vod">-</span></div>
+      <div class="calc-row"><span class="lbl">라이브 참여수</span><span class="val" id="upd-calc-live">-</span></div>
+      <hr class="calc-divider">
+      <div class="calc-row result"><span class="lbl">✨ 순수 조회수</span><span class="val" id="upd-calc-pure">-</span></div>
+      <div class="perm-hint" id="upd-calc-hint"></div>
+    </div>
     <div class="modal-footer">
       <button class="btn-c" onclick="closeUpd()">취소</button>
       <button class="btn-s" onclick="applyUpd()">업데이트</button>
@@ -303,22 +366,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg0);color:var(--t1)
 </div>
 
 <script>
-const SK='deary_vods3';
+const SK='deary_vods4';
 let vods=[],nextId=1,filt='all',editId=null,updId=null;
 const PERM_THRESHOLD=1000;
 
 function load(){try{const d=JSON.parse(localStorage.getItem(SK)||'{}');vods=d.vods||[];nextId=d.nextId||vods.length+1;}catch{vods=[];}}
 function save(){localStorage.setItem(SK,JSON.stringify({vods,nextId}));}
 
-/* ── 자동 영구보관 체크 ── */
-function checkAutoPerm(v){
-  if(v.type==='permanent')return false;
-  return (Number(v.views)||0)>=PERM_THRESHOLD;
-}
-
+function pureViews(v){return Math.max((Number(v.vodviews)||0)-(Number(v.live)||0),0);}
+function checkAutoPerm(v){return v.type!=='permanent'&&pureViews(v)>=PERM_THRESHOLD;}
 function daysLeft(exp){if(!exp)return null;return Math.ceil((new Date(exp)-new Date())/86400000);}
 function autoExpireDate(date){if(!date)return null;const d=new Date(date);d.setDate(d.getDate()+730);return d.toISOString().slice(0,10);}
-
 function status(v){
   if(v.type==='permanent'||checkAutoPerm(v))return 'permanent';
   const d=daysLeft(v.expire);
@@ -327,39 +385,47 @@ function status(v){
   if(d<=7)return 'expiring';
   return 'active';
 }
-
 function fv(n){n=Number(n)||0;if(n>=100000000)return(n/100000000).toFixed(1)+'억';if(n>=10000)return(n/10000).toFixed(1)+'만';if(n>=1000)return(n/1000).toFixed(1)+'천';return n.toLocaleString();}
 function fd(d){return d?d.replace(/-/g,'.'):''}
 function timeAgo(ts){if(!ts)return '';const diff=Date.now()-ts;if(diff<60000)return '방금 전';if(diff<3600000)return Math.floor(diff/60000)+'분 전';if(diff<86400000)return Math.floor(diff/3600000)+'시간 전';return Math.floor(diff/86400000)+'일 전 갱신';}
 
-/* ── toast ── */
 let toastTimer=null;
 function showToast(msg,type=''){
   const el=document.getElementById('toast');
   el.className='toast'+(type?' '+type:'');
-  el.innerHTML=msg;
-  el.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove('show'),3500);
+  el.innerHTML=msg;el.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);
 }
 
-/* ── stats ── */
 function renderStats(){
   const total=vods.length;
   const perm=vods.filter(v=>status(v)==='permanent').length;
-  const tv=vods.reduce((a,b)=>a+(Number(b.views)||0),0);
-  const tl=vods.reduce((a,b)=>a+(Number(b.live)||0),0);
-  const soon=vods.filter(v=>status(v)==='expiring').length;
-  const near=vods.filter(v=>status(v)!=='permanent'&&(Number(v.views)||0)<PERM_THRESHOLD&&(Number(v.views)||0)>=PERM_THRESHOLD*0.7).length;
+  // 복구할 VOD = 만료됐거나 만료 임박(7일 이내) + 순수조회수 1,000 미만인 것
+  const restore=vods.filter(v=>{ const s=status(v); return s==='expired'||s==='expiring'||(s!=='permanent'&&pureViews(v)<PERM_THRESHOLD); }).length;
   document.getElementById('statsEl').innerHTML=`
-    <div class="stat"><div class="stat-lbl">총 VOD</div><div class="stat-val">${total}개</div></div>
-    <div class="stat"><div class="stat-lbl">VOD 조회수</div><div class="stat-val pu">${fv(tv)}</div></div>
-    <div class="stat"><div class="stat-lbl">라이브 참여</div><div class="stat-val pk">${fv(tl)}</div></div>
-    <div class="stat"><div class="stat-lbl">영구보관</div><div class="stat-val">${perm}개</div></div>
-    <div class="stat"><div class="stat-lbl">만료 임박</div><div class="stat-val wa">${soon}개</div></div>`;
+    <div class="stat s-restore">
+      <div class="stat-icon"><i class="ti ti-alert-triangle"></i></div>
+      <div class="stat-info">
+        <div class="stat-lbl">복구할 VOD</div>
+        <div class="stat-val">${restore}개</div>
+      </div>
+    </div>
+    <div class="stat s-perm">
+      <div class="stat-icon"><i class="ti ti-infinity"></i></div>
+      <div class="stat-info">
+        <div class="stat-lbl">영구보관</div>
+        <div class="stat-val">${perm}개</div>
+      </div>
+    </div>
+    <div class="stat s-total">
+      <div class="stat-icon"><i class="ti ti-device-tv"></i></div>
+      <div class="stat-info">
+        <div class="stat-lbl">전체 VOD</div>
+        <div class="stat-val">${total}개</div>
+      </div>
+    </div>`;
 }
 
-/* ── render ── */
 function render(){
   const q=(document.getElementById('searchEl').value||'').toLowerCase();
   const sort=document.getElementById('sortEl').value;
@@ -369,16 +435,16 @@ function render(){
     if(filt==='permanent')return s==='permanent';
     if(filt==='expiring')return s==='expiring';
     if(filt==='expired')return s==='expired';
-    if(filt==='near')return s!=='permanent'&&(Number(v.views)||0)<PERM_THRESHOLD&&(Number(v.views)||0)>=PERM_THRESHOLD*0.5;
+    if(filt==='near'){const pv=pureViews(v);return s!=='permanent'&&pv<PERM_THRESHOLD&&pv>=PERM_THRESHOLD*0.5;}
     return true;
   });
   list.sort((a,b)=>{
     if(sort==='date-desc')return new Date(b.date||0)-new Date(a.date||0);
     if(sort==='date-asc')return new Date(a.date||0)-new Date(b.date||0);
-    if(sort==='views-desc')return(Number(b.views)||0)-(Number(a.views)||0);
-    if(sort==='live-desc')return(Number(b.live)||0)-(Number(a.live)||0);
+    if(sort==='pure-desc')return pureViews(b)-pureViews(a);
+    if(sort==='vod-desc')return(Number(b.vodviews)||0)-(Number(a.vodviews)||0);
     if(sort==='expire-asc'){const da=status(a)==='permanent'?99999:(daysLeft(a.expire)||99999);const db=status(b)==='permanent'?99999:(daysLeft(b.expire)||99999);return da-db;}
-    if(sort==='prog-desc'){const pa=(Number(a.views)||0)/PERM_THRESHOLD;const pb=(Number(b.views)||0)/PERM_THRESHOLD;return pb-pa;}
+    if(sort==='prog-desc')return pureViews(b)/PERM_THRESHOLD-pureViews(a)/PERM_THRESHOLD;
     return 0;
   });
   document.getElementById('cntEl').textContent=list.length+'개';
@@ -387,12 +453,14 @@ function render(){
 
   el.innerHTML=list.map(v=>{
     const s=status(v);
-    const isAutoPerm=checkAutoPerm(v)&&v.type!=='permanent';
+    const isAutoPerm=checkAutoPerm(v);
     const dl=s!=='permanent'?daysLeft(v.expire):null;
-    const views=Number(v.views)||0;
-    const live=Number(v.live)||0;
-    const prog=Math.min(views/PERM_THRESHOLD*100,100);
-    const remaining=Math.max(PERM_THRESHOLD-views,0);
+    const pv=pureViews(v);
+    const vodv=Number(v.vodviews)||0;
+    const livev=Number(v.live)||0;
+    const prog=Math.min(pv/PERM_THRESHOLD*100,100);
+    const remaining=Math.max(PERM_THRESHOLD-pv,0);
+    const isDone=pv>=PERM_THRESHOLD;
 
     let badge='',expTxt='';
     if(s==='permanent'){
@@ -402,45 +470,50 @@ function render(){
     else if(s==='expiring'){badge=`<span class="badge b-danger"><i class="ti ti-alert-triangle" style="font-size:10px"></i>D-${dl}</span>`;expTxt=`만료 ${fd(v.expire)}`;}
     else{badge=`<span class="badge b-ok">D-${dl}</span>`;expTxt=`만료 ${fd(v.expire)}`;}
 
+    const thumbHtml=v.thumb
+      ?`<img class="thumb-img" src="${v.thumb}" alt="썸네일" onerror="this.parentElement.innerHTML='<div class=\\'thumb-placeholder\\'><i class=\\'ti ti-photo-off\\'></i><span>썸네일 없음</span></div>'">`
+      :`<div class="thumb-placeholder"><i class="ti ti-device-tv"></i><span style="font-size:10px">${fd(v.date)}</span></div>`;
+
     const linkBtn=v.url&&v.url.startsWith('http')?`<button class="act" onclick="goLink(event,'${v.url.replace(/'/g,"\\'")}')"><i class="ti ti-external-link"></i></button>`:'';
     const updTxt=v.viewsUpdated?`<span class="mt updated"><i class="ti ti-refresh"></i>${timeAgo(v.viewsUpdated)}</span>`:'';
 
-    /* progress bar (영구보관 아닌 경우만) */
-    let progHtml='';
-    if(s!=='permanent'){
-      const isDone=prog>=100;
-      progHtml=`<div class="prog-wrap">
-        <div class="prog-label">
-          <span>${isDone?'🎉 영구보관 달성!':'영구보관까지'}</span>
-          <span class="${isDone?'done':'highlight'}">${isDone?'완료':''+fv(views)+' / 1,000 ('+remaining+'회 남음)'}</span>
-        </div>
-        <div class="prog-bar"><div class="prog-fill${isDone?' done':''}" style="width:${prog}%"></div></div>
-      </div>`;
-    }
+    const progHtml=s!=='permanent'?`<div class="prog-wrap">
+      <div class="prog-label">
+        <span>${isDone?'🎉 영구보관 달성!':'영구보관까지'}</span>
+        <span class="${isDone?'done':'highlight'}">${isDone?'완료':fv(pv)+' / 1,000 ('+remaining+'회 남음)'}</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill${isDone?' done':''}" style="width:${prog}%"></div></div>
+    </div>`:'';
 
     return `<div class="vod-card ${s}${isAutoPerm?' just-perm':''}">
-      <div class="card-top">
-        <div>
-          <div class="vod-title">${v.title}</div>
-          <div class="vod-meta">
-            ${live?`<span class="mt live"><i class="ti ti-users"></i>라이브 ${fv(live)}</span>`:''}
-            <span class="mt views"><i class="ti ti-eye"></i>VOD ${fv(views)}</span>
-            <span class="mt"><i class="ti ti-calendar"></i>${fd(v.date)}</span>
-            ${badge}${updTxt}
-            ${v.memo?`<span class="mt"><i class="ti ti-note"></i>${v.memo}</span>`:''}
+      <div class="card-inner">
+        <div class="thumb-wrap">${thumbHtml}<div class="thumb-overlay"></div></div>
+        <div class="card-body">
+          <div class="card-top-row">
+            <div>
+              <div class="vod-title">${v.title}</div>
+              <div class="vod-meta" style="margin-top:5px">
+                <span class="mt views-pure"><i class="ti ti-sparkles"></i>순수 ${fv(pv)}</span>
+                ${vodv?`<span class="mt vod-cnt"><i class="ti ti-eye"></i>VOD ${fv(vodv)}</span>`:''}
+                ${livev?`<span class="mt live"><i class="ti ti-users"></i>라이브 ${fv(livev)}</span>`:''}
+                <span class="mt"><i class="ti ti-calendar"></i>${fd(v.date)}</span>
+                ${badge}${updTxt}
+                ${v.memo?`<span class="mt"><i class="ti ti-note"></i>${v.memo}</span>`:''}
+              </div>
+            </div>
+            <div class="card-right">
+              <div class="expire-info">${expTxt}</div>
+              <div class="actions">
+                ${linkBtn}
+                <button class="act upd" onclick="openUpd(event,${v.id})" title="조회수 업데이트"><i class="ti ti-refresh"></i></button>
+                <button class="act" onclick="editVod(event,${v.id})" title="수정"><i class="ti ti-edit"></i></button>
+                <button class="act del" onclick="delVod(event,${v.id})" title="삭제"><i class="ti ti-trash"></i></button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="vod-right">
-          <div class="expire-info">${expTxt}</div>
-          <div class="actions">
-            ${linkBtn}
-            <button class="act upd" onclick="openUpd(event,${v.id})" title="조회수 업데이트"><i class="ti ti-refresh"></i></button>
-            <button class="act" onclick="editVod(event,${v.id})" title="수정"><i class="ti ti-edit"></i></button>
-            <button class="act del" onclick="delVod(event,${v.id})" title="삭제"><i class="ti ti-trash"></i></button>
-          </div>
+          ${progHtml}
         </div>
       </div>
-      ${progHtml}
     </div>`;
   }).join('');
 }
@@ -449,13 +522,22 @@ function ra(){renderStats();render();}
 function goLink(e,url){e.stopPropagation();window.open(url,'_blank');}
 function setF(f,btn){filt=f;document.querySelectorAll('.ftag').forEach(b=>b.classList.remove('on'));btn.classList.add('on');render();}
 
-/* ── URL 제목 가져오기 (CORS proxy 시도) ── */
+/* 썸네일 미리보기 */
+function previewThumb(){
+  const url=document.getElementById('f-thumb').value.trim();
+  const wrap=document.getElementById('thumbPreviewWrap');
+  const img=document.getElementById('thumbPreview');
+  if(url.startsWith('http')){wrap.style.display='block';img.src=url;}
+  else wrap.style.display='none';
+}
+
+/* URL → 제목/썸네일 가져오기 */
 function onUrlInput(){
   const url=document.getElementById('f-url').value.trim();
   document.getElementById('fetchBtn').disabled=!url.startsWith('http');
   document.getElementById('fetchHint').textContent='';
 }
-async function fetchTitle(){
+async function fetchMeta(){
   const url=document.getElementById('f-url').value.trim();
   const btn=document.getElementById('fetchBtn');
   const hint=document.getElementById('fetchHint');
@@ -464,24 +546,37 @@ async function fetchTitle(){
     const proxy=`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
     const res=await fetch(proxy,{signal:AbortSignal.timeout(8000)});
     const data=await res.json();
-    const match=data.contents?.match(/<title[^>]*>([^<]+)<\/title>/i);
-    if(match&&match[1]){
-      let t=match[1].replace(/\s*[-|]\s*SOOP.*$/i,'').replace(/\s*[-|]\s*아프리카.*$/i,'').trim();
+    const html=data.contents||'';
+    // 제목
+    const titleMatch=html.match(/<title[^>]*>([^<]+)<\/title>/i);
+    if(titleMatch){
+      let t=titleMatch[1].replace(/\s*[-|]\s*SOOP.*$/i,'').replace(/\s*[-|]\s*아프리카.*$/i,'').trim();
       document.getElementById('f-title').value=t;
-      hint.className='hint ok';hint.textContent='✓ 제목을 가져왔어요! 필요하면 수정하세요.';
-    }else{hint.className='hint warn';hint.textContent='제목을 찾지 못했어요. 직접 입력해주세요.';}
-  }catch{hint.className='hint warn';hint.textContent='불러오기 실패. 직접 제목을 입력해주세요.';}
-  btn.disabled=false;btn.textContent='제목 가져오기';
+    }
+    // 썸네일 og:image
+    const ogMatch=html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+      ||html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+    if(ogMatch&&ogMatch[1]){
+      document.getElementById('f-thumb').value=ogMatch[1];
+      previewThumb();
+    }
+    if(titleMatch||ogMatch){
+      hint.className='hint ok';hint.textContent='✓ 정보를 가져왔어요! 필요하면 수정하세요.';
+    }else{
+      hint.className='hint warn';hint.textContent='정보를 찾지 못했어요. 직접 입력해주세요.';
+    }
+  }catch{hint.className='hint warn';hint.textContent='불러오기 실패. 직접 입력해주세요.';}
+  btn.disabled=false;btn.textContent='정보 가져오기';
 }
 
-/* ── 날짜/만료일 자동 계산 ── */
+/* 날짜 자동 계산 */
 function autoExpire(){
   const date=document.getElementById('f-date').value;
   const type=document.getElementById('f-type').value;
   if(type==='auto'&&date){
     const exp=autoExpireDate(date);
     document.getElementById('autoHint').className='hint ok';
-    document.getElementById('autoHint').textContent=`→ 만료일: ${fd(exp)} (2년)`;
+    document.getElementById('autoHint').textContent=`→ 만료일: ${fd(exp)} (2년 자동)`;
   }else document.getElementById('autoHint').textContent='';
 }
 function toggleExpire(){
@@ -489,34 +584,55 @@ function toggleExpire(){
   autoExpire();
 }
 
-/* ── 조회수 입력시 달성률 미리보기 ── */
-function calcViews(){
-  const views=parseInt(document.getElementById('f-views').value)||0;
-  const hint=document.getElementById('viewsHint');
-  if(views<=0){hint.textContent='';return;}
-  if(views>=PERM_THRESHOLD){
-    hint.className='hint ok';
-    hint.textContent='🎉 1,000 달성! 저장 시 자동 영구보관으로 전환돼요.';
-  }else{
-    const rem=PERM_THRESHOLD-views;
-    const pct=Math.round(views/PERM_THRESHOLD*100);
-    hint.className='hint';
-    hint.textContent=`영구보관까지 ${rem}회 남음 (${pct}%)`;
-  }
+/* 순수조회수 자동 계산 (추가 모달) */
+function calcPure(){
+  const vod=parseInt(document.getElementById('f-vodviews').value)||0;
+  const live=parseInt(document.getElementById('f-live').value)||0;
+  const box=document.getElementById('calcBox');
+  if(!vod&&!live){box.style.display='none';return;}
+  box.style.display='block';
+  const pure=Math.max(vod-live,0);
+  document.getElementById('calc-vod').textContent=fv(vod);
+  document.getElementById('calc-live').textContent=fv(live);
+  document.getElementById('calc-pure').textContent=fv(pure);
+  const hint=document.getElementById('calc-hint');
+  if(pure>=PERM_THRESHOLD){
+    hint.style.color='var(--ok)';hint.textContent='🎉 1,000 달성! 저장 시 자동으로 영구보관이 돼요.';
+  }else if(pure>0){
+    hint.style.color='var(--t3)';hint.textContent=`영구보관까지 ${PERM_THRESHOLD-pure}회 남음 (${Math.round(pure/PERM_THRESHOLD*100)}%)`;
+  }else hint.textContent='';
 }
 
-/* ── 모달 열기/닫기 ── */
+/* 순수조회수 자동 계산 (업데이트 모달) */
+function calcUpdPure(){
+  const vod=parseInt(document.getElementById('upd-vod').value)||0;
+  const live=parseInt(document.getElementById('upd-live').value)||0;
+  const box=document.getElementById('updCalcBox');
+  if(!vod&&!live){box.style.display='none';return;}
+  box.style.display='block';
+  const pure=Math.max(vod-live,0);
+  document.getElementById('upd-calc-vod').textContent=fv(vod);
+  document.getElementById('upd-calc-live').textContent=fv(live);
+  document.getElementById('upd-calc-pure').textContent=fv(pure);
+  const hint=document.getElementById('upd-calc-hint');
+  if(pure>=PERM_THRESHOLD){hint.style.color='var(--ok)';hint.textContent='🎉 1,000 달성! 자동으로 영구보관이 돼요.';}
+  else if(pure>0){hint.style.color='var(--t3)';hint.textContent=`영구보관까지 ${PERM_THRESHOLD-pure}회 남음 (${Math.round(pure/PERM_THRESHOLD*100)}%)`;}
+  else hint.textContent='';
+}
+
+/* 모달 */
 function openAdd(){
   editId=null;
   document.getElementById('modalTitle').textContent='VOD 추가';
-  ['f-title','f-url','f-memo'].forEach(id=>document.getElementById(id).value='');
-  ['f-views','f-live'].forEach(id=>document.getElementById(id).value='');
+  ['f-title','f-url','f-memo','f-thumb'].forEach(id=>document.getElementById(id).value='');
+  ['f-vodviews','f-live'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('f-date').value=new Date().toISOString().slice(0,10);
   document.getElementById('f-type').value='auto';
   document.getElementById('f-expire').value='';
   document.getElementById('expFld').style.display='none';
+  document.getElementById('calcBox').style.display='none';
+  document.getElementById('thumbPreviewWrap').style.display='none';
   document.getElementById('fetchHint').textContent='';
-  document.getElementById('viewsHint').textContent='';
   document.getElementById('fetchBtn').disabled=true;
   autoExpire();
   document.getElementById('addOverlay').classList.add('open');
@@ -529,16 +645,19 @@ function editVod(e,id){
   document.getElementById('modalTitle').textContent='VOD 수정';
   document.getElementById('f-title').value=v.title;
   document.getElementById('f-url').value=v.url||'';
-  document.getElementById('f-views').value=v.views||'';
+  document.getElementById('f-vodviews').value=v.vodviews||'';
   document.getElementById('f-live').value=v.live||'';
   document.getElementById('f-date').value=v.date||'';
   document.getElementById('f-type').value=v.storageType||'auto';
   document.getElementById('f-expire').value=v.expire||'';
   document.getElementById('f-memo').value=v.memo||'';
+  document.getElementById('f-thumb').value=v.thumb||'';
   document.getElementById('expFld').style.display=v.storageType==='custom'?'block':'none';
   document.getElementById('fetchBtn').disabled=!v.url;
   document.getElementById('fetchHint').textContent='';
-  calcViews();autoExpire();
+  if(v.thumb){document.getElementById('thumbPreviewWrap').style.display='block';document.getElementById('thumbPreview').src=v.thumb;}
+  else document.getElementById('thumbPreviewWrap').style.display='none';
+  calcPure();autoExpire();
   document.getElementById('addOverlay').classList.add('open');
 }
 function closeAdd(){document.getElementById('addOverlay').classList.remove('open');}
@@ -548,83 +667,57 @@ function saveVod(){
   if(!title){alert('제목을 입력해주세요!');return;}
   const date=document.getElementById('f-date').value;
   const storageType=document.getElementById('f-type').value;
-  const views=parseInt(document.getElementById('f-views').value)||0;
+  const vodviews=parseInt(document.getElementById('f-vodviews').value)||0;
+  const live=parseInt(document.getElementById('f-live').value)||0;
   let expire=null,type='timed';
   if(storageType==='permanent')type='permanent';
   else if(storageType==='custom')expire=document.getElementById('f-expire').value;
   else expire=autoExpireDate(date);
-
-  const wasAutoPerm=editId?checkAutoPerm(vods.find(x=>x.id===editId)||{}):false;
-  const willAutoPerm=type!=='permanent'&&views>=PERM_THRESHOLD;
-
   const existing=editId?vods.find(x=>x.id===editId):null;
+  const wasAuto=existing?checkAutoPerm(existing):false;
   const obj={
     id:editId||nextId++,title,
     url:document.getElementById('f-url').value.trim(),
-    views,live:parseInt(document.getElementById('f-live').value)||0,
-    date,type,storageType,expire,
+    thumb:document.getElementById('f-thumb').value.trim(),
+    vodviews,live,date,type,storageType,expire,
     memo:document.getElementById('f-memo').value.trim(),
     viewsUpdated:existing?.viewsUpdated||null,
   };
   if(editId){const i=vods.findIndex(x=>x.id===editId);vods[i]=obj;}
   else vods.push(obj);
   save();closeAdd();ra();
-
-  if(willAutoPerm&&!wasAutoPerm){
-    setTimeout(()=>showToast('<i class="ti ti-infinity"></i> VOD 조회수 1,000 달성! 자동으로 영구보관으로 전환됐어요 🎉','perm'),300);
-  }
+  if(checkAutoPerm(obj)&&!wasAuto)setTimeout(()=>showToast('<i class="ti ti-infinity"></i> 순수조회수 1,000 달성! 자동 영구보관으로 전환됐어요 🎉','perm'),300);
 }
 
-/* ── 조회수 업데이트 모달 ── */
 function openUpd(e,id){
   e.stopPropagation();
   const v=vods.find(x=>x.id===id);if(!v)return;
   updId=id;
-  document.getElementById('updTitle').textContent=v.title;
+  document.getElementById('updTitleEl').textContent=v.title;
+  document.getElementById('upd-vod').value=v.vodviews||'';
   document.getElementById('upd-live').value=v.live||'';
-  document.getElementById('upd-views').value=v.views||'';
-  document.getElementById('updHint').textContent='';
+  document.getElementById('updCalcBox').style.display='none';
   document.getElementById('updOverlay').classList.add('open');
-  document.getElementById('upd-views').oninput=function(){
-    const val=parseInt(this.value)||0;
-    const hint=document.getElementById('updHint');
-    if(val>=PERM_THRESHOLD){hint.style.color='var(--ok)';hint.textContent='🎉 1,000 달성! 저장 시 자동 영구보관으로 전환돼요.';}
-    else{hint.style.color='var(--t3)';hint.textContent=`영구보관까지 ${PERM_THRESHOLD-val}회 남음 (${Math.round(val/PERM_THRESHOLD*100)}%)`;}
-  };
-  setTimeout(()=>document.getElementById('upd-views').focus(),80);
+  calcUpdPure();
+  setTimeout(()=>document.getElementById('upd-vod').focus(),80);
 }
 function closeUpd(){document.getElementById('updOverlay').classList.remove('open');}
 function applyUpd(){
-  const views=parseInt(document.getElementById('upd-views').value)||0;
+  const vodviews=parseInt(document.getElementById('upd-vod').value)||0;
   const live=parseInt(document.getElementById('upd-live').value)||0;
-  const i=vods.findIndex(x=>x.id===updId);
-  if(i<0)return;
-  const wasAutoPerm=checkAutoPerm(vods[i]);
-  vods[i].views=views;vods[i].live=live;vods[i].viewsUpdated=Date.now();
-  const isNowAutoPerm=checkAutoPerm(vods[i]);
+  const i=vods.findIndex(x=>x.id===updId);if(i<0)return;
+  const wasAuto=checkAutoPerm(vods[i]);
+  vods[i].vodviews=vodviews;vods[i].live=live;vods[i].viewsUpdated=Date.now();
+  const isNow=checkAutoPerm(vods[i]);
   save();closeUpd();ra();
-  if(isNowAutoPerm&&!wasAutoPerm){
-    setTimeout(()=>showToast('<i class="ti ti-infinity"></i> VOD 조회수 1,000 달성! 자동으로 영구보관으로 전환됐어요 🎉','perm'),300);
-  }else{
-    showToast('<i class="ti ti-check"></i> 조회수가 업데이트됐어요!');
-  }
+  if(isNow&&!wasAuto)setTimeout(()=>showToast('<i class="ti ti-infinity"></i> 순수조회수 1,000 달성! 자동 영구보관으로 전환됐어요 🎉','perm'),300);
+  else showToast('<i class="ti ti-check"></i> 조회수가 업데이트됐어요!');
 }
 
-function delVod(e,id){
-  e.stopPropagation();
-  if(!confirm('이 VOD를 삭제할까요?'))return;
-  vods=vods.filter(v=>v.id!==id);save();ra();
-}
-function exportData(){
-  const blob=new Blob([JSON.stringify({vods,nextId},null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='deary_vod_backup.json';a.click();
-}
-function importData(e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(d.vods){vods=d.vods;nextId=d.nextId||vods.length+1;save();ra();}}catch{alert('파일을 읽는데 실패했어요.');}};
-  r.readAsText(file);
-}
+function delVod(e,id){e.stopPropagation();if(!confirm('이 VOD를 삭제할까요?'))return;vods=vods.filter(v=>v.id!==id);save();ra();}
+function exportData(){const blob=new Blob([JSON.stringify({vods,nextId},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='deary_vod_backup.json';a.click();}
+function importData(e){const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(d.vods){vods=d.vods;nextId=d.nextId||vods.length+1;save();ra();}}catch{alert('파일을 읽는데 실패했어요.');}};r.readAsText(file);}
+
 [document.getElementById('addOverlay'),document.getElementById('updOverlay')].forEach(el=>{
   el.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 });
